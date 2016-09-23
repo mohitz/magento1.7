@@ -51,12 +51,42 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         $billingCountry = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
         Mage::log($billingCountry);
 
-        Mage::log(print_r($billingAddress, true));
+        $billingAddressString = $billingAddress->getName().$billingAddress->getStreetFull().$billingAddress->getRegion().$billingCountry;
+
+        Mage::log($billingAddressString);
 
         $shippingAddress = $order->getShippingAddress();
-        Mage::log(print_r($shippingAddress, true));
+        $shipcountryCode = $shippingAddress->getCountry();
+        $shippingCountry = Mage::getModel('directory/country')->loadByCode($shipcountryCode)->getName();
+        $shippingAddressString = $shippingAddress->getName().$shippingAddress->getStreetFull().$shippingAddress->getRegion().$shippingCountry;
+        Mage::log(print_r($shippingAddressString, true));
 
         $items = $order->getAllItems();
+
+
+        foreach ($items as $itemId => $item)
+        {
+
+            Mage::log($itemId);
+            Mage::log($item->getName());
+            Mage::log($item->getPrice());
+            Mage::log($item->getSku());
+            Mage::log($item->getProductId());
+            Mage::log($item->getQtyOrdered());
+            Mage::log($item->getSize());
+            Mage::log($item->getColor());
+
+            $product = Mage::getModel('catalog/product')->load($item->getProductId());
+            $categoryIds = $product->getCategoryIds();
+            if (isset($categoryIds[0])) {
+                $category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+                Mage::log($category->getName());
+            }
+
+            Mage::log("Done with a item");
+
+        }
+
         Mage::log("Got items");
 
         Mage::log(
