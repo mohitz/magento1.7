@@ -44,8 +44,11 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
 
         //Figure out customer group later
 
-        var_dump($incrementId.$customerName.$billingAddress.$shippingAddress.$items.$subTotal.$orderDate.$billingCountry);
+        var_dump($incrementId.$customerName.$subTotal.$orderDate.$billingCountry);
 
+        var_dump($billingAddress);
+        var_dump($shippingAddress);
+        var_dump($items);
 
 
         //country, date of purchase, customer group
