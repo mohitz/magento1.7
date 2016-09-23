@@ -37,18 +37,32 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         $subTotal = $order->getTotalDue();
         Mage::log("7");
 
+
         $orderDate = $order->getCreatedAtFormated('short');
+
         Mage::log("8");
-        $billingCountry = $billingAddress->getCountry();
+
+        $countryCode = $billingAddress->getCountry();
+        $billingCountry = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
         Mage::log("9");
 
-        //Figure out customer group later
+        $group = null;
 
-        var_dump($incrementId.$customerName.$subTotal.$orderDate.$billingCountry);
+        if(Mage::getSingleton('customer/session')->isLoggedIn()){
+
+            // Get group Id
+            $groupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+            //Get customer Group name
+            $group = Mage::getModel('customer/group')->load($groupId);
+
+        }
+
+
+        var_dump($incrementId.$customerName.$subTotal.$orderDate.$billingCountry.$customerEmail.$group->getCode());
 
         var_dump($billingAddress);
         var_dump($shippingAddress);
-        var_dump($items);
+        //var_dump($items);
 
 
         //country, date of purchase, customer group
