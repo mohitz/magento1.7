@@ -20,11 +20,37 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         $order = $observer->getEvent()->getOrder();
 
         // Write a new line to var/log/product-updates.log
-        $name = print_r($order->getIncrementId(), 1);
 
-        var_dump($order);
+        $incrementId = $order->getIncrementId();
+        Mage::log("1");
+
+        $customerName = $order->getCustomerName();
+        Mage::log("2");
+        $billingAddress = $order->getBillingAddress();
+        Mage::log("3");
+        $shippingAddress = $order->getShippingAddress();
+        Mage::log("4");
+        $customerEmail = $order->getCustomerEmail();
+        Mage::log("5");
+        $items = $order->getAllItems();
+        Mage::log("6");
+        $subTotal = $order->getTotalDue();
+        Mage::log("7");
+
+        $orderDate = $order->getCreatedAtFormated('short');
+        Mage::log("8");
+        $billingCountry = $billingAddress->getCountry();
+        Mage::log("9");
+
+        //Figure out customer group later
+
+        var_dump($incrementId.$customerName.$billingAddress.$shippingAddress.$items.$subTotal.$orderDate.$billingCountry);
+
+
+
+        //country, date of purchase, customer group
 
         Mage::log(
-            $name."Finished executing the the order created");
+            "Finished executing the the order created");
     }
 }
