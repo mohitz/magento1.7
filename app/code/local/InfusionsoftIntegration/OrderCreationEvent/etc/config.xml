@@ -22,4 +22,65 @@
 
     </modules>
 
+
+    <!-- Configure our module's behavior in the global scope -->
+    <global>
+
+        <!-- Defining models -->
+        <models>
+
+            <!--
+                Unique identifier in the model's node.
+                By convention, we put the module's name in lowercase.
+            -->
+            <infusionsoftintegration_ordercreationevent>
+
+                <!--
+                    The path to our models directory, with directory
+                    separators replaced by underscores
+                -->
+                <class>InfusionsoftIntegration_OrderCreationEvent_Model</class>
+
+            </infusionsoftintegration_ordercreationevent>
+
+        </models>
+
+
+        <!-- Defining an event observer -->
+        <events>
+
+            <!-- The code of the event we want to observe -->
+            <sales_order_place_after>
+
+                <!-- Defining an observer for this event -->
+                <observers>
+
+                    <!--
+                        Unique identifier within the
+                        catalog_product_save_after node.
+                        By convention, we write the module's
+                        name in lowercase.
+                    -->
+                    <infusionsoftintegration_ordercreationevent>
+
+                        <!-- The model to be instantiated -->
+                        <class>infusionsoftintegration_ordercreationevent/observer</class>
+
+                        <!-- The method of the class to be called -->
+                        <method>logUpdate</method>
+
+                        <!-- The type of class to instantiate -->
+                        <type>singleton</type>
+
+                    </infusionsoftintegration_ordercreationevent>
+
+                </observers>
+
+            </sales_order_place_after>
+
+        </events>
+
+    </global>
+
+
 </config>
