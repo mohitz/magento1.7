@@ -1,0 +1,11 @@
+<reference name="root">
+   <block type="adminhtml/sales_order_create_load" name="content"/>
+</reference>
+<reference name="content">
+   <block type="centinel/adminhtml_validation" as="card_validation" name="card_validation" template="sales/order/create/abstract.phtml">
+      <block type="centinel/adminhtml_validation_form" template="centinel/validation/form.phtml" name="form"/>
+   </block>
+</reference>
+<reference name="content">
+   <block type="adminhtml/sales_order_create_messages" name="message"/>
+</reference>
