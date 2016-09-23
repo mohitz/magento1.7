@@ -23,6 +23,6 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         $name = print_r($order->getIncrementId(), 1);
 
         Mage::log(
-            "Finished executing the the order created");
+            "{name} Finished executing the the order created");
     }
 }
