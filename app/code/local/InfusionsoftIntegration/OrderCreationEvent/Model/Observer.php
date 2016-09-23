@@ -20,9 +20,9 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         $order = $observer->getEvent()->getOrder();
 
         // Write a new line to var/log/product-updates.log
-        $name = print_r($order->getData(), 1);
+        //$name = print_r($order->getData(), 1);
 
         Mage::log(
-            "{$name} is the order created");
+            "Finished executing the the order created");
     }
 }
