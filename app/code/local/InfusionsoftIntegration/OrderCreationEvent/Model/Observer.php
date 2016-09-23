@@ -96,6 +96,8 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         Mage::log("Got items");
 
         Mage::log(
-            "Finished executing the the order created");
+            "Now calling infusionsoft APIs");
+
+
     }
 }

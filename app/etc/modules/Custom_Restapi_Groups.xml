@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Custom_Restapi_Groups>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Custom_Restapi_Groups>
+    </modules>
+</config>

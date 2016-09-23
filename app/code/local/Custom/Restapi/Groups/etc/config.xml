@@ -1,0 +1,16 @@
+<config>
+    <modules>
+        <Custom_Restapi_Groups>
+            <version>0.1.0.0</version>
+        </Custom_Restapi_Groups>
+    </modules>
+
+    <global>
+    <models>
+        <groups>
+            <class>Custom_Restapi_Groups_Model</class>
+        </groups>
+    </models>
+
+    </global>
+</config>
