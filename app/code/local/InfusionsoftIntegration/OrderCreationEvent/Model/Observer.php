@@ -22,7 +22,9 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         // Write a new line to var/log/product-updates.log
         $name = print_r($order->getIncrementId(), 1);
 
+        var_dump($order);
+
         Mage::log(
-            "{name} Finished executing the the order created");
+            $name."Finished executing the the order created");
     }
 }

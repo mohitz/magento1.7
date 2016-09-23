@@ -50,7 +50,7 @@
         <events>
 
             <!-- The code of the event we want to observe -->
-            <sales_order_place_before>
+            <sales_order_place_after>
 
                 <!-- Defining an observer for this event -->
                 <observers>
@@ -76,7 +76,7 @@
 
                 </observers>
 
-            </sales_order_place_before>
+            </sales_order_place_after>
 
         </events>
 
