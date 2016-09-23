@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The root node for Magento module configuration -->
+<config>
+
+    <!--
+        The module's node contains basic
+        information about each Magento module
+    -->
+    <modules>
+
+        <!--
+            This must exactly match the namespace and module's folder
+            names, with directory separators replaced by underscores
+        -->
+        <InfusionsoftIntegration_OrderCreationEvent>
+
+            <!-- The version of our module, starting at 0.0.1 -->
+            <version>0.0.1</version>
+
+        </InfusionsoftIntegration_OrderCreationEvent>
+
+    </modules>
+
+</config>
