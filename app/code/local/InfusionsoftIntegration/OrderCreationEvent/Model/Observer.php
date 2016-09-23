@@ -74,8 +74,11 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
             Mage::log($item->getProductId());
             Mage::log($item->getQtyOrdered());
 
-            $size = $item->getResource()->getAttribute('size')->getFrontend()->getValue($item);
-            $color =  $item->getResource()->getAttribute('color')->getFrontend()->getValue($item);
+            //$size = $item->getResource()->getAttribute('size')->getFrontend()->getValue($item);
+            //$color =  $item->getResource()->getAttribute('color')->getFrontend()->getValue($item);
+
+            $size = $item->getData('size');
+            $color = $item->getData('color');
             Mage::log($size);
             Mage::log($color);
 

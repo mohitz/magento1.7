@@ -80,6 +80,19 @@
 
         </events>
 
+
+        <sales>
+            <quote>
+                <item>
+                    <product_attributes>
+                        <size />
+                        <color />
+                    </product_attributes>
+                </item>
+            </quote>
+        </sales>
+
+
     </global>
 
 
