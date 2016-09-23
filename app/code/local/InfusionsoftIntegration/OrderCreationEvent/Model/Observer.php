@@ -22,50 +22,42 @@ class InfusionsoftIntegration_OrderCreationEvent_Model_Observer
         // Write a new line to var/log/product-updates.log
 
         $incrementId = $order->getIncrementId();
-        Mage::log("1");
+        Mage::log($incrementId);
 
         $customerName = $order->getCustomerName();
-        Mage::log("2");
-        $billingAddress = $order->getBillingAddress();
-        Mage::log("3");
-        $shippingAddress = $order->getShippingAddress();
-        Mage::log("4");
-        $customerEmail = $order->getCustomerEmail();
-        Mage::log("5");
-        $items = $order->getAllItems();
-        Mage::log("6");
-        $subTotal = $order->getTotalDue();
-        Mage::log("7");
+        Mage::log($customerName);
 
+        $customerEmail = $order->getCustomerEmail();
+        Mage::log("$customerEmail");
+
+        $subTotal = $order->getTotalDue();
+        Mage::log($subTotal);
 
         $orderDate = $order->getCreatedAtFormated('short');
-
-        Mage::log("8");
-
-        $countryCode = $billingAddress->getCountry();
-        $billingCountry = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
-        Mage::log("9");
-
-        $group = null;
+        Mage::log($orderDate);
 
         if(Mage::getSingleton('customer/session')->isLoggedIn()){
-
             // Get group Id
             $groupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
             //Get customer Group name
             $group = Mage::getModel('customer/group')->load($groupId);
-
+            Mage::log($group->getCode());
         }
 
 
-        var_dump($incrementId.$customerName.$subTotal.$orderDate.$billingCountry.$customerEmail.$group->getCode());
+        $billingAddress = $order->getBillingAddress();
 
-        var_dump($billingAddress);
-        var_dump($shippingAddress);
-        //var_dump($items);
+        $countryCode = $billingAddress->getCountry();
+        $billingCountry = Mage::getModel('directory/country')->loadByCode($countryCode)->getName();
+        Mage::log($billingCountry);
 
+        Mage::log(print_r($billingAddress, true));
 
-        //country, date of purchase, customer group
+        $shippingAddress = $order->getShippingAddress();
+        Mage::log(print_r($shippingAddress, true));
+
+        $items = $order->getAllItems();
+        Mage::log("Got items");
 
         Mage::log(
             "Finished executing the the order created");
