@@ -16,9 +16,6 @@
                 <privileges>
                     <admin>
                         <retrieve>1</retrieve>
-                        <create>1</create>
-                        <update>1</update>
-                        <delete>1</delete>
                     </admin>
                 </privileges>
                 <attributes>
@@ -30,11 +27,6 @@
                         <route>/groups/group/:id</route>
                         <action_type>entity</action_type>
                     </route_entity>
-                    <route_collection>
-                        <route>/groups/</route>
-                        <action_type>collection</action_type>
-                    </route_collection>
-
                 </routes>
 
                 <versions>1</versions>
