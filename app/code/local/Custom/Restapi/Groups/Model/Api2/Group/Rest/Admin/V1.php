@@ -56,7 +56,7 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
                 $nPrice = $nProduct->getPrice();
 
                 //Fetch category name
-                $product = Mage::getModel('catalog/product')->load($item->getProductId());
+                $product = Mage::getModel('catalog/product')->load($sItem->getProductId());
                 $categoryIds = $product->getCategoryIds();
 
 
