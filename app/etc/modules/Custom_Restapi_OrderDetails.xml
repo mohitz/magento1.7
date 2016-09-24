@@ -1,8 +1,8 @@
 <config>
     <modules>
-        <Custom_Restapi_Groups>
+        <Custom_Restapi_OrderDetails>
             <active>true</active>
             <codePool>local</codePool>
-        </Custom_Restapi_Groups>
+        </Custom_Restapi_OrderDetails>
     </modules>
 </config>
