@@ -42,5 +42,11 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
 
     }
 
+    public function _retrieveCollection()
+    {
+        //get order Collection
+        return array("foo", "bar");
+    }
+
 }
 ?>
