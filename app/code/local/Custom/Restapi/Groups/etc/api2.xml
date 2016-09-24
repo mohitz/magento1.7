@@ -20,12 +20,6 @@
                         <update>1</update>
                         <delete>1</delete>
                     </admin>
-                    <customer>
-                        <retrieve>1</retrieve>
-                    </customer>
-                    <guest>
-                        <retrieve>1</retrieve>
-                    </guest>
                 </privileges>
                 <attributes>
                     <name>Name</name>
