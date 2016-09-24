@@ -24,10 +24,14 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
 
         foreach($orderItems as $sItem) {
 
+            Mage::log("Entering loop for new item again");
+
             //Ignore conf for now
             //Alt. Mage_Catalog_Model_Product_Type::TYPE_SIMPLE = 'simple';
             if($sItem->getProductType() == "simple")
             {
+
+                Mage::log("Product is a simple product");
 
                 $productId = $sItem->getProductId();
                 $sku = $sItem->getSku();
@@ -41,6 +45,7 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
                 $parentOrderId = $item->getOrderId();
                 $parentProductId = $item->getProductId();
                 $itemId = $item->getId();
+                Mage::log($itemId." -- item id of parent");
                 $parentItemPrice = $item->getPrice();
                 $quantity = $item->getQtyOrdered();
 
@@ -56,17 +61,23 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
 
 
                 foreach ($categoryIds as $category_id) {
+                    Mage::log("Entering inner loop for category ids");
                     $category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($category_id);
 
                     $categoryName = $category->getName();
+                    Mage::log($categoryName);
                     array_push($categoryArr, $categoryName);
 
                     $parentCategoryName = $category->getParentCategory()->getName();
+                    Mage::log($parentCategoryName);
                     array_push($superCategoryArr, $parentCategoryName);
 
                 }
 
 
+            }
+            else {
+                Mage::log("Product is not a simple product");
             }
         }
 
