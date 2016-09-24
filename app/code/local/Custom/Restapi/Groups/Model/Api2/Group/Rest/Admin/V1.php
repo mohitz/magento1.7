@@ -35,10 +35,16 @@ class Custom_Restapi_Groups_Model_Api2_Group_Rest_Admin_V1 extends Mage_Api2_Mod
     public function _retrieve()
     {
         //retrieve a group name by ID
-        $customerGroupId = $this->getRequest()->getParam('id');
-        $groupname = Mage::getModel('customer/group')->load($customerGroupId)->getCustomerGroupCode();
+//        $customerGroupId = $this->getRequest()->getParam('id');
+//        $groupname = Mage::getModel('customer/group')->load($customerGroupId)->getCustomerGroupCode();
+//
+//        return $groupname;
 
-        return $groupname;
+        $order = Mage::getModel('sales/order')->loadByIncrementId('100000021'); //use a real increment order id here
+        $items = $order->getAllVisibleItems();
+
+        return $items[0]->getSku();
+
 
     }
 
